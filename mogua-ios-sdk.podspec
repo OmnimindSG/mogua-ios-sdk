@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.license              = { :type => "Apache License, Version 2.0", :file => "LICENSE" }
   spec.author               = { "Omnimind" => "omnimind.sg@gmail.com" }
   spec.platform             = :ios, "12.0"
-  spec.source               = { :git => "https://github.com/OmnimindSG/mogua-ios-sdk.git" }
+  spec.source               = { :git => "https://github.com/OmnimindSG/mogua-ios-sdk.git", :tag => "#{spec.version}" }
   spec.source_files         = "Classes", "Classes/**/*.{h,m}"
   spec.exclude_files        = "Classes/Exclude"
   spec.public_header_files  = "Classes/**/*.h"
