@@ -1,3 +1,4 @@
+[//]: # (redundant)
 # iOS Integration
 
 The MoguaSDK is compatible with apps supporting iOS 11 or above.
@@ -71,7 +72,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-> Placeholder: *Privacy Policy for Clipboard Authorization*
+[//]: # (Placeholder: Privacy Policy for Clipboard Authorization)
 
 ---
 
