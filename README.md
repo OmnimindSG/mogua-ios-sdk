@@ -15,18 +15,21 @@ There are two ways to install the SDK, `CocoaPods` and `Manual Framework`:
 
 2. If you don’t have an existing [Podfile](https://guides.cocoapods.org/syntax/podfile.html), run the following command to create one:
 
+[//]: # (target="Command Line")
 ```sh
 pod init
 ```
 
 3. Add this line to your `Podfile`:
 
+[//]: # (language="Ruby", target="Podfile")
 ```ruby
 pod 'MoguaSDK', '~> 0.4.4'
 ```
 
 4. Run the following command:
 
+[//]: # (target="Command Line")
 ```sh
 pod install
 ```
@@ -35,6 +38,7 @@ pod install
 
 6. In the future, to update to the latest version of the SDK, run:
 
+[//]: # (target="Command Line")
 ```sh
 pod update MoguaSDK
 ```
@@ -80,7 +84,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 After initialization, you can asynchronously retrieve the parameters carried during installation (eg. Submit from landing pages).
 
-[//]: # (language="Swift")
+[//]: # (language="Swift", target="Exsample")
 ```swift
 MoguaSDK.getData(
     onData: { data in
@@ -91,7 +95,7 @@ MoguaSDK.getData(
     }
 )
 ```
-[//]: # (language="Objective-C")
+[//]: # (language="Objective-C", target="Exsample")
 ```objectivec
 [MoguaSDK getDataOnData:^(NSDictionary<NSString *,id> * _Nonnull data) {
     // data: Parameters passed from the web to the app. If no parameters are provided, an empty dictionary object is returned.
