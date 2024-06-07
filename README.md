@@ -61,7 +61,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     // ...
     // appKey: You can find it on the mogua.io dashboard.
     // allowPasteboardAccess: Whether to allow access to the clipboard. Enabling this feature can enhance accuracy, but may trigger permission warnings.
-    MoguaSDK.initWith(appKey: "mogua-sdk-app-key", allowPasteboardAccess: true)
+    MoguaSDK.initWith(appKey: "${appKey}", allowPasteboardAccess: true)
     return true
 }
 ```
@@ -71,7 +71,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     // ...
     // appKey: You can find it on the mogua.io dashboard.
     // allowPasteboardAccess: Whether to allow access to the clipboard. Enabling this feature can enhance accuracy, but may trigger permission warnings.
-    [MoguaSDK initWithAppKey: @"mogua-sdk-app-key" allowPasteboardAccess: YES];
+    [MoguaSDK initWithAppKey: @"${appKey}" allowPasteboardAccess: YES];
     return YES;
 }
 ```
