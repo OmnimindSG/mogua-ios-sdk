@@ -24,7 +24,7 @@ pod init
 
 [//]: # (language="Ruby", target="Podfile")
 ```ruby
-pod 'MoguaSDK', '~> 0.4.4'
+pod 'MoguaSDK', '~> 0.5.0'
 ```
 
 4. Run the following command:
@@ -59,8 +59,8 @@ You need to initialize the SDK before any usage.
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // ...
-    // appKey: You can find it on the mogua.io dashboard.
-    // allowPasteboardAccess: Whether to allow access to the clipboard. Enabling this feature can enhance accuracy, but may trigger permission warnings.
+    // appKey: The App Key associated with this application, available on the dashboard at www.mogua.io.
+    // allowPasteboardAccess: A Boolean value indicating whether to allow access to the clipboard. Enabling this feature can enhance accuracy but may trigger permission warnings on certain systems.
     MoguaSDK.initWith(appKey: "${appKey}", allowPasteboardAccess: true)
     return true
 }
@@ -69,8 +69,8 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```objectivec
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // ...
-    // appKey: You can find it on the mogua.io dashboard.
-    // allowPasteboardAccess: Whether to allow access to the clipboard. Enabling this feature can enhance accuracy, but may trigger permission warnings.
+    // appKey: The App Key associated with this application, available on the dashboard at www.mogua.io.
+    // allowPasteboardAccess: A Boolean value indicating whether to allow access to the clipboard. Enabling this feature can enhance accuracy but may trigger permission warnings on certain systems.
     [MoguaSDK initWithAppKey: @"${appKey}" allowPasteboardAccess: YES];
     return YES;
 }
@@ -80,29 +80,29 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ---
 
-## 3. Retrieve the parameters
+## 3. Retrieve the data
 
-After initialization, you can asynchronously retrieve the parameters carried during installation (eg. Submit from landing pages).
+After initialization, you can asynchronously retrieve the data carried during the app installation (e.g., Submit from landing pages).
 
 [//]: # (language="Swift", target="Exsample")
 ```swift
-MoguaSDK.getData(
+MoguaSDK.getInstallData(
     onData: { data in
         // data: Parameters passed from the web to the app. If no parameters are provided, an empty Dictionary object is returned.
     },
     onError: { error in
-        // error: The exception that occurred.
+        // error: Any exceptions that occurred.
     }
 )
 ```
 [//]: # (language="Objective-C", target="Exsample")
 ```objectivec
-[MoguaSDK getDataOnData:^(NSDictionary<NSString *,id> * _Nonnull data) {
+[MoguaSDK getInstallDataOnData:^(NSDictionary<NSString *,id> * _Nonnull data) {
     // data: Parameters passed from the web to the app. If no parameters are provided, an empty dictionary object is returned.
 } onError:^(NSError * _Nonnull error) {
-    // error: The exception that occurred.
+    // error: Any exceptions that occurred.
 }];
 ```
 
 > Parameters are cached after passing.
-> The `getData` method will always retrieve the same parameters unless the application is reinstalled.
+> The `getInstallData` method will always retrieve the same parameters unless the application is reinstalled.

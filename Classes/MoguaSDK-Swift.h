@@ -304,19 +304,43 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS("_TtC8MoguaSDK8MoguaSDK")
 @interface MoguaSDK : NSObject
 /// Initialize the MoguaSDK.
-/// \param appKey The App Key associated with this application, you can find it on the mogua.io dashboard.
+/// \param appKey The App Key associated with this application, available on the dashboard at www.mogua.io.
 ///
-/// \param allowPasteboardAccess Whether to allow access to the clipboard. Enabling this feature can enhance accuracy, but may trigger permission warnings on certain systems.
+/// \param allowPasteboardAccess A Boolean value indicating whether to allow access to the clipboard. Enabling this feature can enhance accuracy but may trigger permission warnings on certain systems.
 ///
 + (void)initWithAppKey:(NSString * _Nonnull)appKey allowPasteboardAccess:(BOOL)allowPasteboardAccess SWIFT_METHOD_FAMILY(none);
-/// Retrieve data from the MoguaSDK.
-/// \param onData Callback for receiving data. You can view relevant reports on the mogua.io dashboard.
++ (void)getDataOnData:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))onData onError:(void (^ _Nonnull)(NSError * _Nonnull))onError SWIFT_DEPRECATED_MSG("", "getInstallDataOnData:onError:");
+/// Retrieve the data carried during the app installation.
+/// \param onData Callback to handle the retrieved data (key-value pairs). Relevant statistics can be viewed on the dashboard at www.mogua.io.
 ///
-/// \param onError Callback for handling exceptions.
+/// \param onError Callback to handle any exceptions that occur.
 ///
-+ (void)getDataOnData:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))onData onError:(void (^ _Nonnull)(NSError * _Nonnull))onError;
++ (void)getInstallDataOnData:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))onData onError:(void (^ _Nonnull)(NSError * _Nonnull))onError;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSURL;
+@class NSUserActivity;
+
+@interface MoguaSDK (SWIFT_EXTENSION(MoguaSDK))
+/// Registers callbacks to handle data when the app is activated via user interaction
+/// (e.g., clicking a link, scanning a QR code).
+/// \param onData Callback to handle the retrieved data (key-value pairs).
+///
+/// \param onError Callback to handle any exceptions that occur.
+///
++ (void)getWakeupDataOnData:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))onData onError:(void (^ _Nonnull)(NSError * _Nonnull))onError;
+/// Handles URLs when the app is activated.
+/// (e.g., call this method and pass the URL within application:handleOpenURL: or application:openURL:sourceApplication:annotation)
+/// \param url The URL provided by the UIApplicationDelegate protocol.
+///
++ (void)handleOpenUrl:(NSURL * _Nonnull)url;
+/// Handles Universal Links passed when the app is activated via NSUserActivity.
+/// /// (e.g., call this method and pass the NSUserActivity within application:continueUserActivity:restorationHandler)
+/// \param userActivity The NSUserActivity provided by the UIApplicationDelegate protocol.
+///
++ (void)handleUserActivity:(NSUserActivity * _Nonnull)userActivity;
 @end
 
 
