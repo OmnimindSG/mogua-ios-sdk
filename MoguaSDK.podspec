@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.author               = { "Omnimind" => "omnimind.sg@gmail.com" }
   spec.platform             = :ios, "9.0"
   spec.source               = { :git => "https://github.com/OmnimindSG/mogua-ios-sdk.git", :tag => "#{spec.version}" }
-  spec.source_files         = "lib/MoguaSDK.framework", "lib/MoguaSDK.framework/**/*"
+  spec.source_files         = "lib/MoguaSDK.framework/**/*.h"
   spec.public_header_files  = "lib/MoguaSDK.framework/Headers/*"
   spec.vendored_frameworks  = "lib/MoguaSDK.framework"
   spec.preserve_paths       = "lib/MoguaSDK.framework"
