@@ -301,8 +301,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if defined(__OBJC__)
 @class NSString;
 
-SWIFT_CLASS("_TtC8MoguaSDK8MoguaSDK")
-@interface MoguaSDK : NSObject
+SWIFT_CLASS("_TtC8MoguaSDK5Mogua")
+@interface Mogua : NSObject
 /// Initialize the MoguaSDK.
 /// \param appKey The App Key associated with this application, available on the dashboard at www.mogua.io.
 ///
@@ -323,14 +323,14 @@ SWIFT_CLASS("_TtC8MoguaSDK8MoguaSDK")
 @class NSURL;
 @class NSUserActivity;
 
-@interface MoguaSDK (SWIFT_EXTENSION(MoguaSDK))
-/// Registers callbacks to handle data when the app is activated via user interaction
+@interface Mogua (SWIFT_EXTENSION(MoguaSDK))
+/// Registers callbacks to handle data when the app is activated via a URL
 /// (e.g., clicking a link, scanning a QR code).
 /// \param onData Callback to handle the retrieved data (key-value pairs).
 ///
 /// \param onError Callback to handle any exceptions that occur.
 ///
-+ (void)getWakeupDataOnData:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))onData onError:(void (^ _Nonnull)(NSError * _Nonnull))onError;
++ (void)getOpenDataOnData:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))onData onError:(void (^ _Nonnull)(NSError * _Nonnull))onError;
 /// Handles URLs when the app is activated.
 /// (e.g., call this method and pass the URL within application:handleOpenURL: or application:openURL:sourceApplication:annotation)
 /// \param url The URL provided by the UIApplicationDelegate protocol.
