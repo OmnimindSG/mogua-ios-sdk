@@ -313,8 +313,9 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
               },
               {
                 "kind": "TypeNominal",
@@ -325,7 +326,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@CM@MoguaSDK@objc(cs)Mogua(cm)handleOpenUrl:",
-            "mangledName": "$s8MoguaSDK0A0C13handleOpenUrlyy10Foundation3URLVFZ",
+            "mangledName": "$s8MoguaSDK0A0C13handleOpenUrlySb10Foundation3URLVFZ",
             "moduleName": "MoguaSDK",
             "static": true,
             "declAttributes": [
@@ -344,8 +345,9 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
               },
               {
                 "kind": "TypeNominal",
@@ -356,7 +358,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@CM@MoguaSDK@objc(cs)Mogua(cm)handleUserActivity:",
-            "mangledName": "$s8MoguaSDK0A0C18handleUserActivityyySo06NSUserE0CFZ",
+            "mangledName": "$s8MoguaSDK0A0C18handleUserActivityySbSo06NSUserE0CFZ",
             "moduleName": "MoguaSDK",
             "static": true,
             "declAttributes": [

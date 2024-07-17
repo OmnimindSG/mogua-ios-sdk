@@ -19,8 +19,8 @@ public typealias MoguaCallbackOnError = (_ error: any Swift.Error) -> ()
 }
 extension MoguaSDK.Mogua {
   @objc public static func getOpenData(onData: @escaping MoguaSDK.MoguaCallbackOnData, onError: @escaping MoguaSDK.MoguaCallbackOnError)
-  @objc public static func handleOpenUrl(_ url: Foundation.URL)
-  @objc public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity)
+  @objc public static func handleOpenUrl(_ url: Foundation.URL) -> Swift.Bool
+  @objc public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity) -> Swift.Bool
 }
 extension Swift.String : Foundation.LocalizedError {
   public var errorDescription: Swift.String? {

@@ -335,12 +335,18 @@ SWIFT_CLASS("_TtC8MoguaSDK5Mogua")
 /// (e.g., call this method and pass the URL within application:handleOpenURL: or application:openURL:sourceApplication:annotation)
 /// \param url The URL provided by the UIApplicationDelegate protocol.
 ///
-+ (void)handleOpenUrl:(NSURL * _Nonnull)url;
+///
+/// returns:
+/// A Boolean value indicating whether the handling was successful.
++ (BOOL)handleOpenUrl:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 /// Handles Universal Links passed when the app is activated via NSUserActivity.
 /// /// (e.g., call this method and pass the NSUserActivity within application:continueUserActivity:restorationHandler)
 /// \param userActivity The NSUserActivity provided by the UIApplicationDelegate protocol.
 ///
-+ (void)handleUserActivity:(NSUserActivity * _Nonnull)userActivity;
+///
+/// returns:
+/// A Boolean value indicating whether the handling was successful.
++ (BOOL)handleUserActivity:(NSUserActivity * _Nonnull)userActivity SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
