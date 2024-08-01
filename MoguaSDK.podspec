@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name                 = "MoguaSDK"
-  spec.version              = "0.8.0"
+  spec.version              = "0.10.0"
   spec.summary              = "Web to App Parameter Passing Solution."
   spec.description          = "When a download link for an app is sent via text messages, emails, affiliate pages, QR codes, etc., our SDK tracks the link's parameters when new users download and open the app."
   spec.homepage             = "https://www.mogua.io"

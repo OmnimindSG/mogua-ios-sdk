@@ -8,17 +8,19 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-public typealias MoguaCallbackOnData = (_ data: [Swift.String : Any]) -> ()
-public typealias MoguaCallbackOnError = (_ error: any Swift.Error) -> ()
+public typealias DataCallback = (_ data: [Swift.String : Any]) -> ()
+public typealias ErrorCallback = (_ error: any Swift.Error) -> ()
+@objc public class MoguaCallback : ObjectiveC.NSObject {
+  @objc(initWithOnData:onError:) public init(onData: @escaping MoguaSDK.DataCallback, onError: @escaping MoguaSDK.ErrorCallback)
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc public class Mogua : ObjectiveC.NSObject {
   @objc public static func initWith(appKey: Swift.String, allowPasteboardAccess: Swift.Bool)
-  @available(*, deprecated, renamed: "getInstallData")
-  @objc public static func getData(onData: @escaping MoguaSDK.MoguaCallbackOnData, onError: @escaping MoguaSDK.MoguaCallbackOnError)
-  @objc public static func getInstallData(onData: @escaping MoguaSDK.MoguaCallbackOnData, onError: @escaping MoguaSDK.MoguaCallbackOnError)
+  @objc public static func getInstallData(_ callback: MoguaSDK.MoguaCallback)
   @objc deinit
 }
 extension MoguaSDK.Mogua {
-  @objc public static func getOpenData(onData: @escaping MoguaSDK.MoguaCallbackOnData, onError: @escaping MoguaSDK.MoguaCallbackOnError)
+  @objc public static func getOpenData(_ callback: MoguaSDK.MoguaCallback)
   @objc public static func handleOpenUrl(_ url: Foundation.URL) -> Swift.Bool
   @objc public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity) -> Swift.Bool
 }

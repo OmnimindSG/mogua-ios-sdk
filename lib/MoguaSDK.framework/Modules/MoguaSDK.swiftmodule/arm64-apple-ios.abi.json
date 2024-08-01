@@ -16,6 +16,175 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "MoguaCallback",
+        "printedName": "MoguaCallback",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(onData:onError:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MoguaCallback",
+                "printedName": "MoguaSDK.MoguaCallback",
+                "usr": "c:@M@MoguaSDK@objc(cs)MoguaCallback"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.String : Any]) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(any Swift.Error) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MoguaSDK@objc(cs)MoguaCallback(im)initWithOnData:onError:",
+            "mangledName": "$s8MoguaSDK0A8CallbackC6onData0D5ErrorACySDySSypGc_ys0F0_pctcfc",
+            "moduleName": "MoguaSDK",
+            "objc_name": "initWithOnData:onError:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MoguaCallback",
+                "printedName": "MoguaSDK.MoguaCallback",
+                "usr": "c:@M@MoguaSDK@objc(cs)MoguaCallback"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MoguaSDK@objc(cs)MoguaCallback(im)init",
+            "mangledName": "$s8MoguaSDK0A8CallbackCACycfc",
+            "moduleName": "MoguaSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MoguaSDK@objc(cs)MoguaCallback",
+        "mangledName": "$s8MoguaSDK0A8CallbackC",
+        "moduleName": "MoguaSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "Mogua",
         "printedName": "Mogua",
         "children": [
@@ -58,83 +227,8 @@
           },
           {
             "kind": "Function",
-            "name": "getData",
-            "printedName": "getData(onData:onError:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "([Swift.String : Any]) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[Swift.String : Any]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
-                      }
-                    ],
-                    "usr": "s:SD"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(any Swift.Error) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Error",
-                    "printedName": "any Swift.Error",
-                    "usr": "s:s5ErrorP"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MoguaSDK@objc(cs)Mogua(cm)getDataOnData:onError:",
-            "mangledName": "$s8MoguaSDK0A0C7getData02onD00E5ErroryySDySSypGc_ys0F0_pctFZ",
-            "moduleName": "MoguaSDK",
-            "static": true,
-            "deprecated": true,
-            "objc_name": "getDataOnData:onError:",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC",
-              "Available"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "getInstallData",
-            "printedName": "getInstallData(onData:onError:)",
+            "printedName": "getInstallData(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -142,61 +236,17 @@
                 "printedName": "()"
               },
               {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "([Swift.String : Any]) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[Swift.String : Any]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
-                      }
-                    ],
-                    "usr": "s:SD"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(any Swift.Error) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Error",
-                    "printedName": "any Swift.Error",
-                    "usr": "s:s5ErrorP"
-                  }
-                ]
+                "kind": "TypeNominal",
+                "name": "MoguaCallback",
+                "printedName": "MoguaSDK.MoguaCallback",
+                "usr": "c:@M@MoguaSDK@objc(cs)MoguaCallback"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@MoguaSDK@objc(cs)Mogua(cm)getInstallDataOnData:onError:",
-            "mangledName": "$s8MoguaSDK0A0C14getInstallData02onE00F5ErroryySDySSypGc_ys0G0_pctFZ",
+            "usr": "c:@M@MoguaSDK@objc(cs)Mogua(cm)getInstallData:",
+            "mangledName": "$s8MoguaSDK0A0C14getInstallDatayyAA0A8CallbackCFZ",
             "moduleName": "MoguaSDK",
             "static": true,
-            "objc_name": "getInstallDataOnData:onError:",
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -234,7 +284,7 @@
           {
             "kind": "Function",
             "name": "getOpenData",
-            "printedName": "getOpenData(onData:onError:)",
+            "printedName": "getOpenData(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -242,61 +292,17 @@
                 "printedName": "()"
               },
               {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "([Swift.String : Any]) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[Swift.String : Any]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
-                      }
-                    ],
-                    "usr": "s:SD"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(any Swift.Error) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Error",
-                    "printedName": "any Swift.Error",
-                    "usr": "s:s5ErrorP"
-                  }
-                ]
+                "kind": "TypeNominal",
+                "name": "MoguaCallback",
+                "printedName": "MoguaSDK.MoguaCallback",
+                "usr": "c:@M@MoguaSDK@objc(cs)MoguaCallback"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@MoguaSDK@objc(cs)Mogua(cm)getOpenDataOnData:onError:",
-            "mangledName": "$s8MoguaSDK0A0C11getOpenData02onE00F5ErroryySDySSypGc_ys0G0_pctFZ",
+            "usr": "c:@CM@MoguaSDK@objc(cs)Mogua(cm)getOpenData:",
+            "mangledName": "$s8MoguaSDK0A0C11getOpenDatayyAA0A8CallbackCFZ",
             "moduleName": "MoguaSDK",
             "static": true,
-            "objc_name": "getOpenDataOnData:onError:",
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -1088,41 +1094,48 @@
   "ConstValues": [
     {
       "filePath": "\/Users\/shaowensu\/MoguaSDK\/mogua-ios\/MoguaSDK\/Mogua.swift",
+      "kind": "StringLiteral",
+      "offset": 236,
+      "length": 13,
+      "value": "\"MoguaSDK.MoguaCallback\""
+    },
+    {
+      "filePath": "\/Users\/shaowensu\/MoguaSDK\/mogua-ios\/MoguaSDK\/Mogua.swift",
       "kind": "Array",
-      "offset": 2186,
+      "offset": 2527,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/shaowensu\/MoguaSDK\/mogua-ios\/MoguaSDK\/Mogua.swift",
       "kind": "BooleanLiteral",
-      "offset": 2219,
+      "offset": 2560,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/shaowensu\/MoguaSDK\/mogua-ios\/MoguaSDK\/Mogua.swift",
       "kind": "BooleanLiteral",
-      "offset": 2294,
+      "offset": 2635,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/shaowensu\/MoguaSDK\/mogua-ios\/MoguaSDK\/Mogua.swift",
       "kind": "StringLiteral",
-      "offset": 251,
+      "offset": 1013,
       "length": 5,
       "value": "\"MoguaSDK.Mogua\""
     },
     {
       "filePath": "\/Users\/shaowensu\/MoguaSDK\/mogua-ios\/MoguaSDK\/Mogua.swift",
       "kind": "Array",
-      "offset": 4001,
+      "offset": 4445,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/shaowensu\/MoguaSDK\/mogua-ios\/MoguaSDK\/MoguaApi.swift",
+      "filePath": "\/Users\/shaowensu\/MoguaSDK\/mogua-ios\/MoguaSDK\/MoguaAPI.swift",
       "kind": "StringLiteral",
       "offset": 150,
       "length": 22,

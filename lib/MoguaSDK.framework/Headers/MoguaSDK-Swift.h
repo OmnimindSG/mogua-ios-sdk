@@ -300,6 +300,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 @class NSString;
+@class MoguaCallback;
 
 SWIFT_CLASS("_TtC8MoguaSDK5Mogua")
 @interface Mogua : NSObject
@@ -309,13 +310,12 @@ SWIFT_CLASS("_TtC8MoguaSDK5Mogua")
 /// \param allowPasteboardAccess A Boolean value indicating whether to allow access to the clipboard. Enabling this feature can enhance accuracy but may trigger permission warnings on certain systems.
 ///
 + (void)initWithAppKey:(NSString * _Nonnull)appKey allowPasteboardAccess:(BOOL)allowPasteboardAccess SWIFT_METHOD_FAMILY(none);
-+ (void)getDataOnData:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))onData onError:(void (^ _Nonnull)(NSError * _Nonnull))onError SWIFT_DEPRECATED_MSG("", "getInstallDataOnData:onError:");
-/// Retrieve the data carried during the app installation.
-/// \param onData Callback to handle the retrieved data (key-value pairs). Relevant statistics can be viewed on the dashboard at www.mogua.io.
+/// Retrieves data associated with app installation events, allowing the app to respond to deferred deep linking.
+/// warning:
+/// Make sure to initialize the MoguaSDK before calling this method.
+/// \param callback A <code>MoguaCallback</code> object that contains the <code>onData</code> and <code>onError</code> closures to handle the retrieved data or any errors.
 ///
-/// \param onError Callback to handle any exceptions that occur.
-///
-+ (void)getInstallDataOnData:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))onData onError:(void (^ _Nonnull)(NSError * _Nonnull))onError;
++ (void)getInstallData:(MoguaCallback * _Nonnull)callback;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -324,29 +324,44 @@ SWIFT_CLASS("_TtC8MoguaSDK5Mogua")
 @class NSUserActivity;
 
 @interface Mogua (SWIFT_EXTENSION(MoguaSDK))
-/// Registers callbacks to handle data when the app is activated via a URL
-/// (e.g., clicking a link, scanning a QR code).
-/// \param onData Callback to handle the retrieved data (key-value pairs).
+/// Retrieves data associated with app opening (e.g., resume or become active from background) events, allowing the app to respond to direct deep linking.
+/// warning:
+/// Make sure to initialize the MoguaSDK before calling this method.
+/// \param callback A <code>MoguaCallback</code> object that contains the <code>onData</code> and <code>onError</code> closures to handle the retrieved data or any errors.
 ///
-/// \param onError Callback to handle any exceptions that occur.
-///
-+ (void)getOpenDataOnData:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))onData onError:(void (^ _Nonnull)(NSError * _Nonnull))onError;
++ (void)getOpenData:(MoguaCallback * _Nonnull)callback;
 /// Handles URLs when the app is activated.
-/// (e.g., call this method and pass the URL within application:handleOpenURL: or application:openURL:sourceApplication:annotation)
-/// \param url The URL provided by the UIApplicationDelegate protocol.
+/// note:
+/// Calling this method and pass the <code>URL</code> within <code>application:handleOpenURL:</code> or <code>application:openURL:sourceApplication:annotation</code> methods.
+/// \param url The <code>URL</code> provided by the <code>UIApplicationDelegate</code> protocol.
 ///
 ///
 /// returns:
-/// A Boolean value indicating whether the handling was successful.
+/// A <code>Boolean</code> value indicating whether the handling was successful.
 + (BOOL)handleOpenUrl:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 /// Handles Universal Links passed when the app is activated via NSUserActivity.
-/// /// (e.g., call this method and pass the NSUserActivity within application:continueUserActivity:restorationHandler)
-/// \param userActivity The NSUserActivity provided by the UIApplicationDelegate protocol.
+/// note:
+/// Calling this method and pass the <code>NSUserActivity</code> within <code>application:continueUserActivity:restorationHandler</code>
+/// \param userActivity The <code>NSUserActivity</code> provided by the <code>UIApplicationDelegate</code> protocol.
 ///
 ///
 /// returns:
-/// A Boolean value indicating whether the handling was successful.
+/// A <code>Boolean</code> value indicating whether the handling was successful.
 + (BOOL)handleUserActivity:(NSUserActivity * _Nonnull)userActivity SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC8MoguaSDK13MoguaCallback")
+@interface MoguaCallback : NSObject
+/// Initializes a <code>MoguaCallback</code> object with specified <code>onData</code> and <code>onError</code> callbacks.
+/// This initializer is typically used in conjunction with the <code>getInstallData</code> or <code>getOpenData</code> methods to handle the retrieved data or any errors.
+/// \param onData Callback to handle the retrieved data (key-value pairs). Relevant statistics can be viewed on the dashboard at www.mogua.io.
+///
+/// \param onError Callback to handle any errors that occur.
+///
+- (nonnull instancetype)initWithOnData:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))onData onError:(void (^ _Nonnull)(NSError * _Nonnull))onError OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
