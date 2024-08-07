@@ -9,13 +9,13 @@ Pod::Spec.new do |spec|
   spec.author               = { "Omnimind" => "omnimind.sg@gmail.com" }
   spec.platform             = :ios, "9.0"
   spec.source               = { :git => "https://github.com/OmnimindSG/mogua-ios-sdk.git", :tag => "#{spec.version}" }
-  spec.source_files         = "lib/MoguaSDK.framework/**/*.h"
-  spec.public_header_files  = "lib/MoguaSDK.framework/Headers/*"
-  spec.vendored_frameworks  = "lib/MoguaSDK.framework"
-  spec.preserve_paths       = "lib/MoguaSDK.framework"
+  spec.source_files         = "lib/MoguaSDK.xcframework/**/*.h"
+  spec.public_header_files  = "lib/MoguaSDK.xcframework/**/*.h"
+  spec.vendored_frameworks  = "lib/MoguaSDK.xcframework"
+  spec.preserve_paths       = "lib/MoguaSDK.xcframework"
   spec.static_framework     = true
   spec.frameworks           = "Foundation", "UIKit"
-  spec.pod_target_xcconfig  = { "EXCLUDED_ARCHS[sdk=iphonesimulator*]" => "arm64" }
-  spec.user_target_xcconfig = { "EXCLUDED_ARCHS[sdk=iphonesimulator*]" => "arm64" }
+  # spec.pod_target_xcconfig  = { "EXCLUDED_ARCHS[sdk=iphonesimulator*]" => "arm64" }
+  # spec.user_target_xcconfig = { "EXCLUDED_ARCHS[sdk=iphonesimulator*]" => "arm64" }
 
 end

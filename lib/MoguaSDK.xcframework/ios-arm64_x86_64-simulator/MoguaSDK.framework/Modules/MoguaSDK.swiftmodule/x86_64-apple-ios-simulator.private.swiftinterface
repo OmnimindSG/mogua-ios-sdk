@@ -1,0 +1,31 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name MoguaSDK
+import Foundation
+@_exported import MoguaSDK
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public typealias DataCallback = (_ data: [Swift.String : Any]) -> ()
+public typealias ErrorCallback = (_ error: any Swift.Error) -> ()
+@objc public class MoguaCallback : ObjectiveC.NSObject {
+  @objc(initWithOnData:onError:) public init(onData: @escaping MoguaSDK.DataCallback, onError: @escaping MoguaSDK.ErrorCallback)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class Mogua : ObjectiveC.NSObject {
+  @objc public static func initWith(appKey: Swift.String, allowPasteboardAccess: Swift.Bool)
+  @objc public static func getInstallData(_ callback: MoguaSDK.MoguaCallback)
+  @objc deinit
+}
+extension MoguaSDK.Mogua {
+  @objc public static func getOpenData(_ callback: MoguaSDK.MoguaCallback)
+  @objc public static func handleOpenUrl(_ url: Foundation.URL) -> Swift.Bool
+  @objc public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity) -> Swift.Bool
+}
+extension Swift.String : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}

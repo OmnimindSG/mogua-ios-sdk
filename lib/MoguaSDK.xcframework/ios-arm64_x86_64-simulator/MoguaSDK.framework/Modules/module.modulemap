@@ -1,0 +1,11 @@
+framework module MoguaSDK {
+  umbrella header "MoguaSDK.h"
+  export *
+
+  module * { export * }
+}
+
+module MoguaSDK.Swift {
+  header "MoguaSDK-Swift.h"
+  requires objc
+}
